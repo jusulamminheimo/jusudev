@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:jusudev/ui/components/responsive_builder.dart';
 
 class ProjectContainer extends StatefulWidget {
   final bool isBig;
@@ -9,7 +10,7 @@ class ProjectContainer extends StatefulWidget {
 
   const ProjectContainer(
       {Key key,
-      @required this.isBig,
+      this.isBig = false,
       @required this.title,
       this.description,
       this.technologies})
@@ -24,6 +25,10 @@ class _ProjectContainerState extends State<ProjectContainer> {
 
   @override
   Widget build(BuildContext context) {
+    return _desktopContainer();
+  }
+
+  Widget _desktopContainer() {
     return MouseRegion(
       onEnter: (event) {
         setState(() {
@@ -38,8 +43,11 @@ class _ProjectContainerState extends State<ProjectContainer> {
       cursor: SystemMouseCursors.click,
       child: AnimatedContainer(
         duration: Duration(milliseconds: 300),
+        margin: isPhone(context)
+            ? EdgeInsets.only(left: 32, right: 32, bottom: 16)
+            : EdgeInsets.zero,
         padding: EdgeInsets.all(24),
-        width: widget.isBig ? 500 : 300,
+        width: containerSize(),
         height: 200,
         decoration: BoxDecoration(
           color: Colors.black,
@@ -86,6 +94,13 @@ class _ProjectContainerState extends State<ProjectContainer> {
         ),
       ),
     );
+  }
+
+  double containerSize() {
+    if (isPhone(context)) {
+      return 600;
+    }
+    return widget.isBig ? 500 : 300;
   }
 }
 

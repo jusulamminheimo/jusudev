@@ -4,24 +4,14 @@ import 'package:jusudev/ui/components/animated_tab.dart';
 import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/project_grid.dart';
 
-class HomePage extends StatefulWidget {
+class HomePageWeb extends StatefulWidget {
   @override
-  _HomePageState createState() => _HomePageState();
+  _HomePageWebState createState() => _HomePageWebState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageWebState extends State<HomePageWeb> {
   final projectsKey = GlobalKey();
   final meKey = GlobalKey();
-
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +53,7 @@ class _HomePageState extends State<HomePage> {
           style: TextStyle(fontSize: 34, fontWeight: FontWeight.w600),
         ),
       ),
-      backgroundColor: Color(0XFFCCCDC8),
+      backgroundColor: Color(0XFF0F1319),
       body: SingleChildScrollView(
         child: Stack(
           children: [
@@ -116,11 +106,13 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   height: screenHeight * 0.74,
                 ),
-                ProjectGrid(
+                ProjectGridWeb(
                   key: projectsKey,
                 ),
-                InfoContainer(
-                  key: meKey,
+                Center(
+                  child: InfoContainer(
+                    key: meKey,
+                  ),
                 )
               ],
             )

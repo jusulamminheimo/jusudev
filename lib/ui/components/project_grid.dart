@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:jusudev/ui/components/project_container.dart';
 
-class ProjectGrid extends StatefulWidget {
+class ProjectGridWeb extends StatefulWidget {
   final GlobalKey key;
 
-  const ProjectGrid({this.key});
+  const ProjectGridWeb({this.key});
 
   @override
-  _ProjectGridState createState() => _ProjectGridState();
+  _ProjectGridWebState createState() => _ProjectGridWebState();
 }
 
-class _ProjectGridState extends State<ProjectGrid> {
+class _ProjectGridWebState extends State<ProjectGridWeb> {
   @override
   Widget build(BuildContext context) {
     return Center(

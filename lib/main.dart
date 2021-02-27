@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jusudev/ui/pages/home_page.dart';
+import 'package:jusudev/ui/pages/home_page_wrapper.dart';
 
 void main() {
   runApp(MyApp());
@@ -20,6 +20,6 @@ class MyApp extends StatelessWidget {
                       displayColor: Colors.black,
                       bodyColor: Colors.black,
                     ))),
-        home: HomePage());
+        home: HomePageWrapper());
   }
 }
