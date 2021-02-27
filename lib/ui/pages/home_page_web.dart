@@ -96,8 +96,6 @@ class _HomePageWebState extends State<HomePageWeb> {
                 ),
                 Container(
                   color: Color(0XFF0F1319),
-                  width: screenWidth,
-                  height: screenHeight,
                 )
               ],
             )),
@@ -113,7 +111,10 @@ class _HomePageWebState extends State<HomePageWeb> {
                   child: InfoContainer(
                     key: meKey,
                   ),
-                )
+                ),
+                SizedBox(
+                  height: 32,
+                ),
               ],
             )
           ],
