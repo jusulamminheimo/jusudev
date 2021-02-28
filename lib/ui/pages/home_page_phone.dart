@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jusudev/ui/components/animated_header_container.dart';
 import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/project_container.dart';
 
@@ -36,13 +37,7 @@ class _HomePagePhoneState extends State<HomePagePhone> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                            "Let's not waste time. Here is everything public I've done.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 48,
-                                fontWeight: FontWeight.w700)),
+                        AnimatedHeaderContainer(),
                         SizedBox(
                           height: 16,
                         ),

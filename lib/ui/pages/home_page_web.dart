@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:jusudev/ui/components/animated_header_container.dart';
 import 'package:jusudev/ui/components/animated_tab.dart';
 import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/project_grid.dart';
-import 'package:jusudev/ui/components/responsive_builder.dart';
 
 class HomePageWeb extends StatefulWidget {
   @override
@@ -65,16 +65,7 @@ class _HomePageWebState extends State<HomePageWeb> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        ConstrainedBox(
-                          constraints: BoxConstraints(maxWidth: 800),
-                          child: Text(
-                              "Let's not waste time. Here is everything public I've done.",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 84,
-                                  fontWeight: FontWeight.w700)),
-                        ),
+                        AnimatedHeaderContainer(),
                         GestureDetector(
                           onTap: () => Scrollable.ensureVisible(
                               projectsKey.currentContext,
