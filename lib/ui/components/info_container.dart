@@ -17,61 +17,59 @@ class InfoContainer extends StatelessWidget {
   Widget _desktopInfoContainer(BuildContext context) {
     return Padding(
       padding: EdgeInsets.only(top: 180, left: 100, right: 100),
-      child: Expanded(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            ClipOval(child: Image.asset('assets/cvkuva.png')),
-            SizedBox(
-              width: 36,
-            ),
-            Center(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    '/whois jusu',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 36),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Text(
-                    Strings.description,
-                    style: TextStyle(color: Colors.white, fontSize: 16),
-                  ),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Icon(
-                      Icons.mail,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          ClipOval(child: Image.asset('assets/cvkuva.png')),
+          SizedBox(
+            width: 36,
+          ),
+          Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  '/whois jusu',
+                  style: TextStyle(
                       color: Colors.white,
-                    ),
-                    SizedBox(
-                      width: 16,
-                    ),
-                    SelectableText(
-                      ' jusulamminheimo@gmail.com ',
-                      style: TextStyle(
-                          color: Colors.white, fontSize: 16, height: 1.1),
-                    )
-                  ]),
+                      fontWeight: FontWeight.bold,
+                      fontSize: 36),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Text(
+                  Strings.description,
+                  style: TextStyle(color: Colors.white, fontSize: 16),
+                ),
+                SizedBox(
+                  height: 16,
+                ),
+                Row(mainAxisAlignment: MainAxisAlignment.start, children: [
                   SizedBox(
-                    height: 8,
+                    width: 8,
                   ),
-                  _socialsRow(context),
-                ],
-              ),
-            )
-          ],
-        ),
+                  Icon(
+                    Icons.mail,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 16,
+                  ),
+                  SelectableText(
+                    ' jusulamminheimo@gmail.com ',
+                    style: TextStyle(
+                        color: Colors.white, fontSize: 16, height: 1.1),
+                  )
+                ]),
+                SizedBox(
+                  height: 8,
+                ),
+                _socialsRow(context),
+              ],
+            ),
+          )
+        ],
       ),
     );
   }

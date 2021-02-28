@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:jusudev/ui/components/animated_tab.dart';
 import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/project_grid.dart';
+import 'package:jusudev/ui/components/responsive_builder.dart';
 
 class HomePageWeb extends StatefulWidget {
   @override
@@ -15,9 +16,6 @@ class _HomePageWebState extends State<HomePageWeb> {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -59,39 +57,41 @@ class _HomePageWebState extends State<HomePageWeb> {
           children: [
             (Column(
               children: [
-                Container(
-                  decoration: BoxDecoration(color: Color(0XFFCCCDC8)),
-                  width: screenWidth,
-                  height: screenHeight * 0.8,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      ConstrainedBox(
-                        constraints: BoxConstraints(maxWidth: 800),
-                        child: Text(
-                            "Let's not waste time. Here is everything public I've done.",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontSize: 84,
-                                fontWeight: FontWeight.w700)),
-                      ),
-                      GestureDetector(
-                        onTap: () => Scrollable.ensureVisible(
-                            projectsKey.currentContext,
-                            duration: Duration(milliseconds: 800),
-                            curve: Curves.easeInOut,
-                            alignment: .5),
-                        child: MouseRegion(
-                          cursor: SystemMouseCursors.click,
-                          child: Icon(
-                            Icons.arrow_downward_sharp,
-                            size: 72,
-                            color: Colors.purple,
+                ConstrainedBox(
+                  constraints: BoxConstraints(minHeight: 900),
+                  child: Container(
+                    decoration: BoxDecoration(color: Color(0XFFCCCDC8)),
+                    width: double.infinity,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ConstrainedBox(
+                          constraints: BoxConstraints(maxWidth: 800),
+                          child: Text(
+                              "Let's not waste time. Here is everything public I've done.",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 84,
+                                  fontWeight: FontWeight.w700)),
+                        ),
+                        GestureDetector(
+                          onTap: () => Scrollable.ensureVisible(
+                              projectsKey.currentContext,
+                              duration: Duration(milliseconds: 800),
+                              curve: Curves.easeInOut,
+                              alignment: .5),
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: Icon(
+                              Icons.arrow_downward_sharp,
+                              size: 72,
+                              color: Colors.purple,
+                            ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
                 Container(
@@ -102,7 +102,7 @@ class _HomePageWebState extends State<HomePageWeb> {
             Column(
               children: [
                 SizedBox(
-                  height: screenHeight * 0.74,
+                  height: 850,
                 ),
                 ProjectGridWeb(
                   key: projectsKey,
