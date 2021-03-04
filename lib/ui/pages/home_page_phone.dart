@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:jusudev/ui/components/animated_header_container.dart';
 import 'package:jusudev/ui/components/info_container.dart';
+import 'package:jusudev/ui/components/jusu_scaffold.dart';
 import 'package:jusudev/ui/components/project_container.dart';
+import 'package:jusudev/ui/pages/home_page_web.dart';
 
 class HomePagePhone extends StatefulWidget {
   @override
@@ -9,25 +11,14 @@ class HomePagePhone extends StatefulWidget {
 }
 
 class _HomePagePhoneState extends State<HomePagePhone> {
-  final projectsKey = GlobalKey();
-  final meKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(
-          'jusu.dev',
-          style: TextStyle(fontSize: 34, fontWeight: FontWeight.w600),
-        ),
-      ),
-      backgroundColor: Color(0XFF0F1319),
+    return JusuScaffold(
       body: SingleChildScrollView(
         child: Stack(
           children: [
             (Column(
+              key: HomePageWeb.topKey,
               children: [
                 ConstrainedBox(
                   constraints: BoxConstraints(minHeight: 900),
@@ -43,7 +34,7 @@ class _HomePagePhoneState extends State<HomePagePhone> {
                         ),
                         GestureDetector(
                           onTap: () => Scrollable.ensureVisible(
-                              projectsKey.currentContext,
+                              HomePageWeb.projectsKey.currentContext,
                               duration: Duration(milliseconds: 800),
                               curve: Curves.easeInOut,
                               alignment: .5),
@@ -63,7 +54,7 @@ class _HomePagePhoneState extends State<HomePagePhone> {
               ],
             )),
             Padding(
-              key: projectsKey,
+              key: HomePageWeb.projectsKey,
               padding: EdgeInsets.only(top: 850),
               child: Center(
                 child: Column(
@@ -73,26 +64,30 @@ class _HomePagePhoneState extends State<HomePagePhone> {
                       title: 'Moi Mobiili',
                       technologies: ["Flutter", "Flutter web"],
                       description: "Lorem ipsum",
+                      assetImage: AssetImage('assets/moi_screenshot.png'),
                     ),
                     ProjectContainer(
                       title: 'Zephyr',
                       technologies: ["Flutter"],
                       description: "Discord bot made to fetch live match data",
+                      assetImage: AssetImage('assets/acoulu_screenshot.png'),
                     ),
                     ProjectContainer(
                       title: 'AC Oulu',
                       technologies: ["Flutter", "Firestore"],
                       description: "Lorem ipsum",
+                      assetImage: AssetImage('assets/acoulu_screenshot.png'),
                     ),
                     ProjectContainer(
                       title: 'jusu.dev',
                       technologies: ["Flutter web"],
                       description: "Lorem ipsum",
+                      assetImage: AssetImage('assets/acoulu_screenshot.png'),
                     ),
                     SizedBox(
                       height: 32,
                     ),
-                    InfoContainer()
+                    InfoContainer(key: HomePageWeb.meKey)
                   ],
                 ),
               ),

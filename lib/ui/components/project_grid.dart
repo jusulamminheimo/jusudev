@@ -3,8 +3,9 @@ import 'package:jusudev/ui/components/project_container.dart';
 
 class ProjectGridWeb extends StatefulWidget {
   final GlobalKey key;
+  final bool isHovered;
 
-  const ProjectGridWeb({this.key});
+  const ProjectGridWeb({this.key, this.isHovered});
 
   @override
   _ProjectGridWebState createState() => _ProjectGridWebState();
@@ -28,6 +29,7 @@ class _ProjectGridWebState extends State<ProjectGridWeb> {
                   "Flutter",
                   "Flutter web",
                 ],
+                assetImage: AssetImage('assets/moi_screenshot.png'),
               ),
               SizedBox(
                 width: 36,
@@ -37,6 +39,8 @@ class _ProjectGridWebState extends State<ProjectGridWeb> {
                 isBig: false,
                 technologies: ["Python"],
                 description: "Discord bot made to fetch live match data",
+                assetImage: AssetImage('assets/acoulu_screenshot.png'),
+                boxFit: BoxFit.cover,
               )
             ],
           ),
@@ -52,15 +56,17 @@ class _ProjectGridWebState extends State<ProjectGridWeb> {
                 title: "AC Oulu",
                 isBig: false,
                 technologies: ["Flutter", "Firestore"],
+                assetImage: AssetImage('assets/acoulu_screenshot.png'),
               ),
               SizedBox(
                 width: 36,
               ),
               ProjectContainer(
-                isBig: true,
-                title: "jusu.dev",
-                technologies: ["Flutter web"],
-              )
+                  isBig: true,
+                  title: "jusu.dev",
+                  technologies: ["Flutter web"],
+                  assetImage: AssetImage('assets/acoulu_screenshot.png'),
+                  boxFit: BoxFit.fill)
             ],
           ),
         ],
