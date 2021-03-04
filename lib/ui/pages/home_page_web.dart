@@ -1,61 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:jusudev/ui/components/animated_header_container.dart';
-import 'package:jusudev/ui/components/animated_tab.dart';
 import 'package:jusudev/ui/components/info_container.dart';
+import 'package:jusudev/ui/components/jusu_scaffold.dart';
 import 'package:jusudev/ui/components/project_grid.dart';
 
 class HomePageWeb extends StatefulWidget {
+  static final projectsKey = GlobalKey();
+  static final meKey = GlobalKey();
+  static final topKey = GlobalKey();
+
   @override
   _HomePageWebState createState() => _HomePageWebState();
 }
 
 class _HomePageWebState extends State<HomePageWeb> {
-  final projectsKey = GlobalKey();
-  final meKey = GlobalKey();
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        actions: [
-          Row(
-            children: [
-              AnimatedTab(
-                  title: "projects",
-                  onTap: () => Scrollable.ensureVisible(
-                      projectsKey.currentContext,
-                      duration: Duration(milliseconds: 800),
-                      curve: Curves.easeInOut,
-                      alignment: .5)),
-              SizedBox(
-                width: 36,
-              ),
-              AnimatedTab(
-                  title: "me",
-                  onTap: () => Scrollable.ensureVisible(
-                        meKey.currentContext,
-                        duration: Duration(milliseconds: 800),
-                        curve: Curves.easeInOut,
-                      )),
-              SizedBox(
-                width: 36,
-              ),
-            ],
-          )
-        ],
-        title: Text(
-          'jusu.dev',
-          style: TextStyle(fontSize: 34, fontWeight: FontWeight.w600),
-        ),
-      ),
-      backgroundColor: Color(0XFF0F1319),
+    return JusuScaffold(
       body: SingleChildScrollView(
         child: Stack(
           children: [
             (Column(
+              key: HomePageWeb.topKey,
               children: [
                 ConstrainedBox(
                   constraints: BoxConstraints(minHeight: 900),
@@ -68,7 +35,7 @@ class _HomePageWebState extends State<HomePageWeb> {
                         AnimatedHeaderContainer(),
                         GestureDetector(
                           onTap: () => Scrollable.ensureVisible(
-                              projectsKey.currentContext,
+                              HomePageWeb.projectsKey.currentContext,
                               duration: Duration(milliseconds: 800),
                               curve: Curves.easeInOut,
                               alignment: .5),
@@ -96,15 +63,15 @@ class _HomePageWebState extends State<HomePageWeb> {
                   height: 850,
                 ),
                 ProjectGridWeb(
-                  key: projectsKey,
+                  key: HomePageWeb.projectsKey,
                 ),
                 Center(
                   child: InfoContainer(
-                    key: meKey,
+                    key: HomePageWeb.meKey,
                   ),
                 ),
                 SizedBox(
-                  height: 32,
+                  height: 64,
                 ),
               ],
             )
