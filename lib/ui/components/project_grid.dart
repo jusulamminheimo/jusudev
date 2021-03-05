@@ -10,7 +10,7 @@ class ProjectGridWeb extends StatefulWidget {
         "Flutter",
         "Flutter web",
       ],
-      assetImage: AssetImage('assets/moi_screenshot.png'),
+      assetImage: AssetImage('assets/moi_screenshot_mockup.jpg'),
     ),
     ProjectContainer(
       title: "Zepyr",
@@ -23,8 +23,7 @@ class ProjectGridWeb extends StatefulWidget {
       title: "AC Oulu",
       isBig: false,
       technologies: ["Flutter", "Firestore"],
-      assetImage: AssetImage('assets/placeholder.png'),
-      boxFit: BoxFit.fill,
+      assetImage: AssetImage('assets/acoulu_screenshot.jpg'),
     ),
     ProjectContainer(
         isBig: true,
