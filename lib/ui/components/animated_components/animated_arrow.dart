@@ -41,7 +41,7 @@ class _AnimatedCustomArrowState extends State<AnimatedCustomArrow>
           child: Icon(
             Icons.keyboard_arrow_down,
             size: 72,
-            color: Colors.purple,
+            color: Color(0XFFD92588),
           ),
         ),
       ),
