@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:jusudev/ui/components/project_container.dart';
+import 'package:jusudev/ui/components/responsive_builder.dart';
+import 'package:jusudev/ui/components/info_container.dart';
+import 'package:jusudev/ui/pages/home_page_web.dart';
 
-class ProjectGridWeb extends StatefulWidget {
+class ProjectGrid extends StatefulWidget {
   static List projectList = [
     ProjectContainer(
       isBig: true,
@@ -36,16 +39,16 @@ class ProjectGridWeb extends StatefulWidget {
   final GlobalKey key;
   final bool isHovered;
 
-  const ProjectGridWeb({this.key, this.isHovered});
+  const ProjectGrid({this.key, this.isHovered});
 
   @override
-  _ProjectGridWebState createState() => _ProjectGridWebState();
+  _ProjectGridState createState() => _ProjectGridState();
 }
 
-class _ProjectGridWebState extends State<ProjectGridWeb> {
+class _ProjectGridState extends State<ProjectGrid> {
   @override
   Widget build(BuildContext context) {
-    return _projectGridWeb();
+    return isPhone(context) ? _projectGridPhone() : _projectGridWeb();
   }
 
   Widget _projectGridWeb() {
@@ -57,11 +60,11 @@ class _ProjectGridWebState extends State<ProjectGridWeb> {
             alignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              ProjectGridWeb.projectList[0],
+              ProjectGrid.projectList[0],
               SizedBox(
                 width: 36,
               ),
-              ProjectGridWeb.projectList[1],
+              ProjectGrid.projectList[1],
             ],
           ),
           SizedBox(
@@ -72,13 +75,39 @@ class _ProjectGridWebState extends State<ProjectGridWeb> {
             alignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              ProjectGridWeb.projectList[2],
+              ProjectGrid.projectList[2],
               SizedBox(
                 width: 36,
               ),
-              ProjectGridWeb.projectList[3],
+              ProjectGrid.projectList[3],
             ],
           ),
+        ],
+      ),
+    );
+  }
+
+  Widget _projectGridPhone() {
+    return Center(
+      child: Column(
+        children: [
+          ProjectGrid.projectList[0],
+          SizedBox(
+            height: 32,
+          ),
+          ProjectGrid.projectList[1],
+          SizedBox(
+            height: 32,
+          ),
+          ProjectGrid.projectList[2],
+          SizedBox(
+            height: 32,
+          ),
+          ProjectGrid.projectList[3],
+          SizedBox(
+            height: 32,
+          ),
+          InfoContainer(key: HomePageWeb.meKey)
         ],
       ),
     );

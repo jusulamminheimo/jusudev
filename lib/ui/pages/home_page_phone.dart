@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jusudev/ui/components/animated_components/animated_header_container.dart';
-import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/jusu_scaffold.dart';
 import 'package:jusudev/ui/components/project_grid.dart';
 import 'package:jusudev/ui/pages/home_page_web.dart';
@@ -37,16 +36,7 @@ class _HomePagePhoneState extends State<HomePagePhone> {
               key: HomePageWeb.projectsKey,
               padding: EdgeInsets.only(top: 850),
               child: Center(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ...ProjectGridWeb.projectList,
-                    SizedBox(
-                      height: 32,
-                    ),
-                    InfoContainer(key: HomePageWeb.meKey)
-                  ],
-                ),
+                child: ProjectGrid(),
               ),
             )
           ],

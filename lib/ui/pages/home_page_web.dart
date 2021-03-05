@@ -42,7 +42,7 @@ class _HomePageWebState extends State<HomePageWeb> {
                 SizedBox(
                   height: 850,
                 ),
-                ProjectGridWeb(
+                ProjectGrid(
                   key: HomePageWeb.projectsKey,
                 ),
                 Center(
