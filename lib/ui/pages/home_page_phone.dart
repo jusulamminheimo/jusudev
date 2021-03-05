@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jusudev/ui/components/animated_header_container.dart';
+import 'package:jusudev/ui/components/animated_components/animated_header_container.dart';
 import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/jusu_scaffold.dart';
 import 'package:jusudev/ui/components/project_grid.dart';
@@ -25,27 +25,7 @@ class _HomePagePhoneState extends State<HomePagePhone> {
                   child: Container(
                     decoration: BoxDecoration(color: Color(0XFFCCCDC8)),
                     width: double.infinity,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AnimatedHeaderContainer(),
-                        SizedBox(
-                          height: 16,
-                        ),
-                        GestureDetector(
-                          onTap: () => Scrollable.ensureVisible(
-                              HomePageWeb.projectsKey.currentContext,
-                              duration: Duration(milliseconds: 800),
-                              curve: Curves.easeInOut,
-                              alignment: .5),
-                          child: Icon(
-                            Icons.arrow_downward_sharp,
-                            size: 72,
-                            color: Colors.purple,
-                          ),
-                        ),
-                      ],
-                    ),
+                    child: Center(child: AnimatedHeaderContainer()),
                   ),
                 ),
                 Container(

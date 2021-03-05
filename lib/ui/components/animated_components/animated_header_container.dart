@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jusudev/ui/components/responsive_builder.dart';
+import 'package:jusudev/ui/components/animated_components/animated_arrow.dart';
 
 class AnimatedHeaderContainer extends StatefulWidget {
   @override
@@ -15,7 +17,7 @@ class _AnimatedHeaderContainerState extends State<AnimatedHeaderContainer>
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(seconds: 1),
+      duration: const Duration(milliseconds: 500),
       vsync: this,
     );
     _offsetAnimation = Tween<Offset>(
@@ -23,7 +25,7 @@ class _AnimatedHeaderContainerState extends State<AnimatedHeaderContainer>
       end: Offset.zero,
     ).animate(CurvedAnimation(
       parent: _controller,
-      curve: Curves.elasticIn,
+      curve: Curves.easeInCubic,
     ));
     _controller.forward();
   }
@@ -42,18 +44,17 @@ class _AnimatedHeaderContainerState extends State<AnimatedHeaderContainer>
         position: _offsetAnimation,
         child: Column(
           children: [
-            Text("Let's not waste time.",
+            Text("Let's not waste time.\nHere is everything public I've done.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
+                    height: 1.12,
                     color: Colors.black,
-                    fontSize: 84,
+                    fontSize: isPhone(context) ? 48 : 84,
                     fontWeight: FontWeight.w700)),
-            Text("Here is everything public I've done.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 84,
-                    fontWeight: FontWeight.w700)),
+            SizedBox(
+              height: 16,
+            ),
+            AnimatedCustomArrow(),
           ],
         ),
       ),

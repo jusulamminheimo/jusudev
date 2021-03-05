@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:jusudev/ui/components/animated_header_container.dart';
+import 'package:jusudev/ui/components/animated_components/animated_header_container.dart';
 import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/jusu_scaffold.dart';
 import 'package:jusudev/ui/components/project_grid.dart';
+import 'package:jusudev/ui/components/animated_components/animated_arrow.dart';
 
 class HomePageWeb extends StatefulWidget {
   static final projectsKey = GlobalKey();
@@ -29,27 +30,7 @@ class _HomePageWebState extends State<HomePageWeb> {
                   child: Container(
                     decoration: BoxDecoration(color: Color(0XFFCCCDC8)),
                     width: double.infinity,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        AnimatedHeaderContainer(),
-                        GestureDetector(
-                          onTap: () => Scrollable.ensureVisible(
-                              HomePageWeb.projectsKey.currentContext,
-                              duration: Duration(milliseconds: 800),
-                              curve: Curves.easeInOut,
-                              alignment: .5),
-                          child: MouseRegion(
-                            cursor: SystemMouseCursors.click,
-                            child: Icon(
-                              Icons.arrow_downward_sharp,
-                              size: 72,
-                              color: Colors.purple,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    child: Center(child: AnimatedHeaderContainer()),
                   ),
                 ),
                 Container(

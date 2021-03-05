@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:jusudev/ui/components/animated_tab.dart';
+import 'package:jusudev/ui/components/animated_components/animated_tab.dart';
+import 'package:jusudev/ui/components/responsive_builder.dart';
 import 'package:jusudev/ui/pages/home_page_web.dart';
 
 class JusuScaffold extends StatelessWidget {
@@ -16,30 +17,31 @@ class JusuScaffold extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         actions: [
-          Row(
-            children: [
-              AnimatedTab(
-                  title: "projects",
-                  onTap: () => Scrollable.ensureVisible(
-                      HomePageWeb.projectsKey.currentContext,
-                      duration: Duration(milliseconds: 800),
-                      curve: Curves.easeInOut,
-                      alignment: .5)),
-              SizedBox(
-                width: 36,
-              ),
-              AnimatedTab(
-                  title: "me",
-                  onTap: () => Scrollable.ensureVisible(
-                        HomePageWeb.meKey.currentContext,
+          if (isPhone(context))
+            Row(
+              children: [
+                AnimatedTab(
+                    title: "projects",
+                    onTap: () => Scrollable.ensureVisible(
+                        HomePageWeb.projectsKey.currentContext,
                         duration: Duration(milliseconds: 800),
                         curve: Curves.easeInOut,
-                      )),
-              SizedBox(
-                width: 36,
-              ),
-            ],
-          )
+                        alignment: .5)),
+                SizedBox(
+                  width: 36,
+                ),
+                AnimatedTab(
+                    title: "me",
+                    onTap: () => Scrollable.ensureVisible(
+                          HomePageWeb.meKey.currentContext,
+                          duration: Duration(milliseconds: 800),
+                          curve: Curves.easeInOut,
+                        )),
+                SizedBox(
+                  width: 36,
+                ),
+              ],
+            )
         ],
         title: GestureDetector(
           onTap: () {

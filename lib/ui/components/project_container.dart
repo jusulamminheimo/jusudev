@@ -100,9 +100,9 @@ class _ProjectContainerState extends State<ProjectContainer>
           height: 200,
           decoration: BoxDecoration(
             image: DecorationImage(
-              colorFilter: isHovered
+              colorFilter: isPhone(context)
                   ? ColorFilter.mode(Colors.black54, BlendMode.darken)
-                  : null,
+                  : colorFilterForContainer(),
               image: widget.assetImage,
               fit: widget.boxFit ?? BoxFit.cover,
             ),
@@ -110,39 +110,9 @@ class _ProjectContainerState extends State<ProjectContainer>
           ),
           child: Stack(
             children: [
-              Align(
-                alignment: Alignment.center,
-                child: SlideTransition(
-                  position: _offsetAnimation,
-                  child: FadeTransition(
-                    opacity: _opacityAnimation,
-                    child: Visibility(
-                      visible: isHovered,
-                      child: Padding(
-                        padding: EdgeInsets.all(16),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Text(
-                              widget.title,
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
-                                  fontSize: 32),
-                            ),
-                            if (widget.description != null)
-                              Text(
-                                widget.description,
-                                style: TextStyle(color: Colors.white),
-                                textAlign: TextAlign.center,
-                              ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
+              isPhone(context)
+                  ? _phoneContainerContent()
+                  : _webContainerContent(),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -170,7 +140,11 @@ class _ProjectContainerState extends State<ProjectContainer>
     return AnimatedContainer(
       duration: Duration(milliseconds: 300),
       padding: EdgeInsets.all(16),
-      height: isHovered ? 60 : 0,
+      height: isPhone(context)
+          ? 60
+          : isHovered
+              ? 60
+              : 0,
       width: double.infinity,
       color: Colors.transparent,
       child: Row(
@@ -178,6 +152,74 @@ class _ProjectContainerState extends State<ProjectContainer>
         children: [
           for (var t in widget.technologies) TechnologyContainer(title: t),
         ],
+      ),
+    );
+  }
+
+  ColorFilter colorFilterForContainer() {
+    if (isHovered) return ColorFilter.mode(Colors.black54, BlendMode.darken);
+    return null;
+  }
+
+  Widget _webContainerContent() {
+    return Align(
+      alignment: Alignment.center,
+      child: SlideTransition(
+        position: _offsetAnimation,
+        child: FadeTransition(
+          opacity: _opacityAnimation,
+          child: Visibility(
+            visible: isHovered,
+            child: Padding(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    widget.title,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white,
+                        fontSize: 32),
+                  ),
+                  if (widget.description != null)
+                    Text(
+                      widget.description,
+                      style: TextStyle(color: Colors.white),
+                      textAlign: TextAlign.center,
+                    ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _phoneContainerContent() {
+    return Center(
+      child: Padding(
+        padding: EdgeInsets.all(16),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              widget.title,
+              style: TextStyle(
+                  fontWeight: FontWeight.w600,
+                  color: Colors.white,
+                  fontSize: 32),
+            ),
+            if (widget.description != null)
+              Text(
+                widget.description,
+                style: TextStyle(color: Colors.white),
+                textAlign: TextAlign.center,
+              ),
+          ],
+        ),
       ),
     );
   }
