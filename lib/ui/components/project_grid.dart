@@ -13,12 +13,11 @@ class ProjectGridWeb extends StatefulWidget {
       assetImage: AssetImage('assets/moi_screenshot.png'),
     ),
     ProjectContainer(
-      title: "Zephyr",
+      title: "Zepyr",
       isBig: false,
       technologies: ["Python"],
       description: "Discord bot made to fetch live match data",
-      assetImage: AssetImage('assets/placeholder.png'),
-      boxFit: BoxFit.fill,
+      assetImage: AssetImage('assets/zepyr_screenshot.png'),
     ),
     ProjectContainer(
       title: "AC Oulu",

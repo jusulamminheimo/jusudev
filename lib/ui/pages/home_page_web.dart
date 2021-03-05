@@ -4,7 +4,6 @@ import 'package:jusudev/ui/components/animated_components/animated_header_contai
 import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/jusu_scaffold.dart';
 import 'package:jusudev/ui/components/project_grid.dart';
-import 'package:jusudev/ui/components/animated_components/animated_arrow.dart';
 
 class HomePageWeb extends StatefulWidget {
   static final projectsKey = GlobalKey();
