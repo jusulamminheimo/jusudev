@@ -29,7 +29,7 @@ class ProjectGridWeb extends StatefulWidget {
         isBig: true,
         title: "jusu.dev",
         technologies: ["Flutter web"],
-        assetImage: AssetImage('assets/placeholder.png'),
+        assetImage: AssetImage('assets/jusudev_screenshot.jpg'),
         boxFit: BoxFit.cover)
   ];
 

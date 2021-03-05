@@ -89,41 +89,44 @@ class _ProjectContainerState extends State<ProjectContainer>
         });
       },
       cursor: SystemMouseCursors.click,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(14),
-        child: AnimatedContainer(
-          duration: Duration(milliseconds: 300),
-          margin: isPhone(context)
-              ? EdgeInsets.only(left: 32, right: 32, bottom: 16)
-              : EdgeInsets.zero,
-          width: containerSize(),
-          height: 200,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              colorFilter: isPhone(context)
-                  ? ColorFilter.mode(Colors.black54, BlendMode.darken)
-                  : colorFilterForContainer(),
-              image: widget.assetImage,
-              fit: widget.boxFit ?? BoxFit.cover,
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 300),
+        margin: isPhone(context)
+            ? EdgeInsets.only(left: 32, right: 32, bottom: 16)
+            : EdgeInsets.zero,
+        width: containerSize(),
+        height: 200,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+                color: Colors.black.withOpacity(0.5),
+                blurRadius: 15.0,
+                offset: Offset(0.0, 3)),
+          ],
+          image: DecorationImage(
+            colorFilter: isPhone(context)
+                ? ColorFilter.mode(Colors.black54, BlendMode.darken)
+                : colorFilterForContainer(),
+            image: widget.assetImage,
+            fit: widget.boxFit ?? BoxFit.cover,
+          ),
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Stack(
+          children: [
+            isPhone(context)
+                ? _phoneContainerContent()
+                : _webContainerContent(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                if (widget.technologies != null &&
+                    widget.technologies.isNotEmpty)
+                  Spacer(),
+                _peekingContainer()
+              ],
             ),
-            borderRadius: BorderRadius.circular(16),
-          ),
-          child: Stack(
-            children: [
-              isPhone(context)
-                  ? _phoneContainerContent()
-                  : _webContainerContent(),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (widget.technologies != null &&
-                      widget.technologies.isNotEmpty)
-                    Spacer(),
-                  _peekingContainer()
-                ],
-              ),
-            ],
-          ),
+          ],
         ),
       ),
     );
