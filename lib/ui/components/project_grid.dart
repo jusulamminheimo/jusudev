@@ -2,6 +2,39 @@ import 'package:flutter/material.dart';
 import 'package:jusudev/ui/components/project_container.dart';
 
 class ProjectGridWeb extends StatefulWidget {
+  static List projectList = [
+    ProjectContainer(
+      isBig: true,
+      title: "Moi Mobiili",
+      technologies: [
+        "Flutter",
+        "Flutter web",
+      ],
+      assetImage: AssetImage('assets/moi_screenshot.png'),
+    ),
+    ProjectContainer(
+      title: "Zephyr",
+      isBig: false,
+      technologies: ["Python"],
+      description: "Discord bot made to fetch live match data",
+      assetImage: AssetImage('assets/placeholder.png'),
+      boxFit: BoxFit.fill,
+    ),
+    ProjectContainer(
+      title: "AC Oulu",
+      isBig: false,
+      technologies: ["Flutter", "Firestore"],
+      assetImage: AssetImage('assets/placeholder.png'),
+      boxFit: BoxFit.fill,
+    ),
+    ProjectContainer(
+        isBig: true,
+        title: "jusu.dev",
+        technologies: ["Flutter web"],
+        assetImage: AssetImage('assets/placeholder.png'),
+        boxFit: BoxFit.cover)
+  ];
+
   final GlobalKey key;
   final bool isHovered;
 
@@ -14,6 +47,10 @@ class ProjectGridWeb extends StatefulWidget {
 class _ProjectGridWebState extends State<ProjectGridWeb> {
   @override
   Widget build(BuildContext context) {
+    return _projectGridWeb();
+  }
+
+  Widget _projectGridWeb() {
     return Center(
       child: Column(
         children: [
@@ -22,26 +59,11 @@ class _ProjectGridWebState extends State<ProjectGridWeb> {
             alignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              ProjectContainer(
-                isBig: true,
-                title: "Moi Mobiili",
-                technologies: [
-                  "Flutter",
-                  "Flutter web",
-                ],
-                assetImage: AssetImage('assets/moi_screenshot.png'),
-              ),
+              ProjectGridWeb.projectList[0],
               SizedBox(
                 width: 36,
               ),
-              ProjectContainer(
-                title: "Zephyr",
-                isBig: false,
-                technologies: ["Python"],
-                description: "Discord bot made to fetch live match data",
-                assetImage: AssetImage('assets/acoulu_screenshot.png'),
-                boxFit: BoxFit.cover,
-              )
+              ProjectGridWeb.projectList[1],
             ],
           ),
           SizedBox(
@@ -52,21 +74,11 @@ class _ProjectGridWebState extends State<ProjectGridWeb> {
             alignment: WrapAlignment.center,
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              ProjectContainer(
-                title: "AC Oulu",
-                isBig: false,
-                technologies: ["Flutter", "Firestore"],
-                assetImage: AssetImage('assets/acoulu_screenshot.png'),
-              ),
+              ProjectGridWeb.projectList[2],
               SizedBox(
                 width: 36,
               ),
-              ProjectContainer(
-                  isBig: true,
-                  title: "jusu.dev",
-                  technologies: ["Flutter web"],
-                  assetImage: AssetImage('assets/acoulu_screenshot.png'),
-                  boxFit: BoxFit.fill)
+              ProjectGridWeb.projectList[3],
             ],
           ),
         ],
