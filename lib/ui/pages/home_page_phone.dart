@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jusudev/ui/components/animated_header_container.dart';
 import 'package:jusudev/ui/components/info_container.dart';
 import 'package:jusudev/ui/components/jusu_scaffold.dart';
-import 'package:jusudev/ui/components/project_container.dart';
+import 'package:jusudev/ui/components/project_grid.dart';
 import 'package:jusudev/ui/pages/home_page_web.dart';
 
 class HomePagePhone extends StatefulWidget {
@@ -60,30 +60,7 @@ class _HomePagePhoneState extends State<HomePagePhone> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    ProjectContainer(
-                      title: 'Moi Mobiili',
-                      technologies: ["Flutter", "Flutter web"],
-                      description: "Lorem ipsum",
-                      assetImage: AssetImage('assets/moi_screenshot.png'),
-                    ),
-                    ProjectContainer(
-                      title: 'Zephyr',
-                      technologies: ["Flutter"],
-                      description: "Discord bot made to fetch live match data",
-                      assetImage: AssetImage('assets/acoulu_screenshot.png'),
-                    ),
-                    ProjectContainer(
-                      title: 'AC Oulu',
-                      technologies: ["Flutter", "Firestore"],
-                      description: "Lorem ipsum",
-                      assetImage: AssetImage('assets/acoulu_screenshot.png'),
-                    ),
-                    ProjectContainer(
-                      title: 'jusu.dev',
-                      technologies: ["Flutter web"],
-                      description: "Lorem ipsum",
-                      assetImage: AssetImage('assets/acoulu_screenshot.png'),
-                    ),
+                    ...ProjectGridWeb.projectList,
                     SizedBox(
                       height: 32,
                     ),
