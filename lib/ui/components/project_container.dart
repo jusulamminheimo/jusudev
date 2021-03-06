@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:jusudev/ui/components/responsive_builder.dart';
+import 'package:jusudev/utils/custom_textstyles.dart';
 
 class ProjectContainer extends StatefulWidget {
   final bool isBig;
@@ -180,15 +181,12 @@ class _ProjectContainerState extends State<ProjectContainer>
                 children: [
                   Text(
                     widget.title,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                        fontSize: 32),
+                    style: CustomTextStyles.projectHeader,
                   ),
                   if (widget.description != null)
                     Text(
                       widget.description,
-                      style: TextStyle(color: Colors.white),
+                      style: CustomTextStyles.projectDescription,
                       textAlign: TextAlign.center,
                     ),
                 ],
@@ -210,15 +208,12 @@ class _ProjectContainerState extends State<ProjectContainer>
           children: [
             Text(
               widget.title,
-              style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                  fontSize: 32),
+              style: CustomTextStyles.projectHeader,
             ),
             if (widget.description != null)
               Text(
                 widget.description,
-                style: TextStyle(color: Colors.white),
+                style: CustomTextStyles.projectDescription,
                 textAlign: TextAlign.center,
               ),
           ],
@@ -230,11 +225,8 @@ class _ProjectContainerState extends State<ProjectContainer>
 
 class TechnologyContainer extends StatelessWidget {
   final String title;
-  final bool isWhite;
 
-  const TechnologyContainer(
-      {Key key, @required this.title, this.isWhite = true})
-      : super(key: key);
+  const TechnologyContainer({Key key, @required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -242,15 +234,12 @@ class TechnologyContainer extends StatelessWidget {
       padding: EdgeInsets.only(left: 14, right: 14),
       margin: EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(
-          border: Border.all(
-              color: isWhite ? Colors.white : Colors.black, width: 1),
+          border: Border.all(color: Colors.white, width: 1),
           borderRadius: BorderRadius.circular(16)),
       child: Center(
           child: Text(
         title.toUpperCase(),
-        style: TextStyle(
-            color: isWhite ? Colors.white : Colors.black,
-            fontWeight: FontWeight.w400),
+        style: CustomTextStyles.technologyTitle,
       )),
     );
   }

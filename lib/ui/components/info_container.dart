@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jusudev/ui/components/responsive_builder.dart';
+import 'package:jusudev/utils/custom_textstyles.dart';
 import 'package:jusudev/utils/network_utils.dart';
 import 'package:jusudev/utils/strings.dart';
 
@@ -30,17 +31,14 @@ class InfoContainer extends StatelessWidget {
               children: [
                 Text(
                   '/whois jusu',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 36),
+                  style: CustomTextStyles.meDescriptionTitleDesktop,
                 ),
                 SizedBox(
                   height: 16,
                 ),
                 Text(
                   Strings.description,
-                  style: TextStyle(color: Colors.white, fontSize: 16),
+                  style: CustomTextStyles.meDescription,
                 ),
                 SizedBox(
                   height: 16,
@@ -58,8 +56,7 @@ class InfoContainer extends StatelessWidget {
                   ),
                   SelectableText(
                     ' jusulamminheimo@gmail.com ',
-                    style: TextStyle(
-                        color: Colors.white, fontSize: 16, height: 1.1),
+                    style: CustomTextStyles.meDescription.copyWith(height: 1.1),
                   )
                 ]),
                 SizedBox(
@@ -87,10 +84,7 @@ class InfoContainer extends StatelessWidget {
           children: [
             Text(
               '/whois jusu',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 36),
+              style: CustomTextStyles.meDescriptionTitleMobile,
             ),
             SizedBox(
               height: 16,
@@ -98,7 +92,7 @@ class InfoContainer extends StatelessWidget {
             Container(
               child: Text(
                 Strings.description,
-                style: TextStyle(color: Colors.white, fontSize: 16),
+                style: CustomTextStyles.meDescription,
               ),
             ),
             SizedBox(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jusudev/utils/custom_textstyles.dart';
 
 class AnimatedTab extends StatefulWidget {
   final String title;
@@ -41,11 +42,8 @@ class _AnimatedTabState extends State<AnimatedTab> {
           width: 100,
           margin: EdgeInsets.all(8),
           child: Text(widget.title,
-              style: TextStyle(
-                fontSize: 26,
-                fontWeight: FontWeight.w400,
-                decoration: isHovered ? TextDecoration.underline : null,
-              )),
+              style: CustomTextStyles.tabStyle.copyWith(
+                  decoration: isHovered ? TextDecoration.underline : null)),
         ),
       ),
     );
