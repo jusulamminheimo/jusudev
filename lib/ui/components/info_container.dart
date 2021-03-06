@@ -83,7 +83,7 @@ class InfoContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              '/whois jusu',
+              Strings.meDescriptionHeader,
               style: CustomTextStyles.meDescriptionTitleMobile,
             ),
             SizedBox(
@@ -107,7 +107,7 @@ class InfoContainer extends StatelessWidget {
                 width: 8,
               ),
               SelectableText(
-                ' jusulamminheimo@gmail.com ',
+                Strings.email,
                 style:
                     TextStyle(color: Colors.white, fontSize: 16, height: 1.1),
               )
