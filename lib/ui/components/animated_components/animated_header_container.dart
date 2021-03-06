@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jusudev/ui/components/responsive_builder.dart';
 import 'package:jusudev/ui/components/animated_components/animated_arrow.dart';
+import 'package:jusudev/utils/custom_textstyles.dart';
 import 'package:jusudev/utils/strings.dart';
 
 class AnimatedHeaderContainer extends StatefulWidget {
@@ -47,11 +48,9 @@ class _AnimatedHeaderContainerState extends State<AnimatedHeaderContainer>
           children: [
             Text(Strings.topHeaderText,
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                    height: 1.12,
-                    color: Colors.black,
-                    fontSize: isPhone(context) ? 48 : 84,
-                    fontWeight: FontWeight.w700)),
+                style: isPhone(context)
+                    ? CustomTextStyles.bigHeaderMobile
+                    : CustomTextStyles.bigHeaderDesktop),
             SizedBox(
               height: 16,
             ),
