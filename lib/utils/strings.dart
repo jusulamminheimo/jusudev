@@ -17,4 +17,7 @@ class StringsEng {
   final String projects = "projects";
   final String me = "me";
   final String jusudev = "jusu.dev";
+  final String meDescriptionHeader = "/whois jusu";
+  final String email =
+      " jusulamminheimo@gmail.com "; //have to use spaces here because of SelectableText not being optimal
 }
