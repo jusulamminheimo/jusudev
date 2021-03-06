@@ -137,8 +137,7 @@ class InfoContainer extends StatelessWidget {
           isPhone(context) ? MainAxisAlignment.center : MainAxisAlignment.start,
       children: [
         IconButton(
-          onPressed: () => NetworkUtils.openUrl(
-              "https://www.linkedin.com/in/jussi-tapio-lamminheimo-95468b182/"),
+          onPressed: () => NetworkUtils.openUrl(Strings.linkedinLink),
           icon: FaIcon(
             FontAwesomeIcons.linkedin,
             color: Colors.white,
@@ -148,8 +147,7 @@ class InfoContainer extends StatelessWidget {
           width: 16,
         ),
         IconButton(
-          onPressed: () =>
-              NetworkUtils.openUrl("https://twitter.com/jusulamminheimo"),
+          onPressed: () => NetworkUtils.openUrl(Strings.twitterLink),
           icon: FaIcon(
             FontAwesomeIcons.twitter,
             color: Colors.white,
@@ -159,8 +157,7 @@ class InfoContainer extends StatelessWidget {
           width: 16,
         ),
         IconButton(
-            onPressed: () =>
-                NetworkUtils.openUrl("https://github.com/jusulamminheimo"),
+            onPressed: () => NetworkUtils.openUrl(Strings.githubLink),
             icon: FaIcon(
               FontAwesomeIcons.github,
               color: Colors.white,

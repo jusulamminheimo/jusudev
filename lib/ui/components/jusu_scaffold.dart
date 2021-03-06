@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:jusudev/ui/components/animated_components/animated_tab.dart';
 import 'package:jusudev/ui/components/responsive_builder.dart';
 import 'package:jusudev/ui/pages/home_page_web.dart';
+import 'package:jusudev/utils/strings.dart';
 
 class JusuScaffold extends StatelessWidget {
   final Widget body;
@@ -21,7 +22,7 @@ class JusuScaffold extends StatelessWidget {
             Row(
               children: [
                 AnimatedTab(
-                    title: "projects",
+                    title: Strings.projects,
                     onTap: () => Scrollable.ensureVisible(
                         HomePageWeb.projectsKey.currentContext,
                         duration: Duration(milliseconds: 800),
@@ -31,7 +32,7 @@ class JusuScaffold extends StatelessWidget {
                   width: 36,
                 ),
                 AnimatedTab(
-                    title: "me",
+                    title: Strings.me,
                     onTap: () => Scrollable.ensureVisible(
                           HomePageWeb.meKey.currentContext,
                           duration: Duration(milliseconds: 800),
@@ -51,7 +52,7 @@ class JusuScaffold extends StatelessWidget {
           child: MouseRegion(
             cursor: SystemMouseCursors.click,
             child: Text(
-              'jusu.dev',
+              Strings.jusudev,
               style: TextStyle(fontSize: 34, fontWeight: FontWeight.w600),
             ),
           ),

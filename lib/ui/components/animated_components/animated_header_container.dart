@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jusudev/ui/components/responsive_builder.dart';
 import 'package:jusudev/ui/components/animated_components/animated_arrow.dart';
+import 'package:jusudev/utils/strings.dart';
 
 class AnimatedHeaderContainer extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _AnimatedHeaderContainerState extends State<AnimatedHeaderContainer>
         position: _offsetAnimation,
         child: Column(
           children: [
-            Text("Let's not waste time.\nHere is everything public I've done.",
+            Text(Strings.topHeaderText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                     height: 1.12,
